@@ -1,0 +1,53 @@
+﻿<Page x:Class="MarselMubarakshin321_UhetPet.Pages.PagePets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarselMubarakshin321_UhetPet.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PagePets">
+
+
+	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+			<ComboBox x:Name="PetNameComboBox" Width="150" Margin="0,0,10,0">
+				<ComboBoxItem Content="Ра"/>
+				<ComboBoxItem Content="Нуби"/>
+			</ComboBox>
+			<Button Content="Поиск" Width="100" Margin="0,0,10,0" Click="SearchButton_Click"/>
+			<Button Content="Добавить нового питомца" Width="150" Click="AddPetButton_Click"/>
+		</StackPanel>
+
+		<ListView x:Name="PetsListView" Grid.Row="1" Background="WhiteSmoke">
+			<ListView.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel Orientation="Horizontal" />
+				</ItemsPanelTemplate>
+			</ListView.ItemsPanel>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Margin="10" Width="200">
+						<Border BorderBrush="Gray" BorderThickness="1" Margin="5">
+							<Image Source="{Binding Image}" Height="100" Width="100">
+								<Image.Effect>
+									<DropShadowEffect Color="Bisque" BlurRadius="5" ShadowDepth="3"/>
+								</Image.Effect>
+							</Image>
+						</Border>
+						<TextBlock Text="{Binding Name}" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0"/>
+						<TextBlock Text="{Binding Description}" TextWrapping="Wrap" Foreground="DarkSlateGray" TextAlignment="Center"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<Button Grid.Row="2" Content="Назад" Width="100" HorizontalAlignment="Right" Click="BackButton_Click" Margin="0,10,0,0"/>
+	</Grid>
+</Page>
