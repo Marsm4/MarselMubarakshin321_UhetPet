@@ -73,8 +73,11 @@ namespace MarselMubarakshin321_UhetPet.Pages
 
         private void AddPetButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            MessageBox.Show("Пока просто заглушка");
+
+            PageAddPet pageAddPet = new PageAddPet();
+
+            // Переход на новую страницу
+            NavigationService?.Navigate(pageAddPet);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
