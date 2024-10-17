@@ -34,7 +34,7 @@ namespace MarselMubarakshin321_UhetPet.Pages
         private void LoadPhotosFromResources()
         {
             // Путь к папке Resources в корне проекта.
-            var resourcesFolderPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
+            var resourcesFolderPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\mubar\\Source\\Repos\\MarselMubarakshin321_UhetPetdgf\\MarselMubarakshin321_UhetPet\\Resources\\");
 
             // Проверка, существует ли папка Resources.
             if (Directory.Exists(resourcesFolderPath))
