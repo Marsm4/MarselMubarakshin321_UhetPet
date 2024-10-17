@@ -16,9 +16,11 @@
 		</Grid.RowDefinitions>
 
 		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
-			<ComboBox x:Name="SortComboBox" Width="150" Margin="0,0,10,0" SelectionChanged="SortComboBox_SelectionChanged">
-				<ComboBoxItem Content="По имени" />
-				<ComboBoxItem Content="По описанию" />
+			<ComboBox x:Name="SortComboBox" Width="200" Margin="0,0,10,0" SelectionChanged="SortComboBox_SelectionChanged">
+				<ComboBoxItem Content="Имя (А-Я)" />
+				<ComboBoxItem Content="Имя (Я-А)" />
+				<ComboBoxItem Content="Описание (А-Я)" />
+				<ComboBoxItem Content="Описание (Я-А)" />
 			</ComboBox>
 			<TextBox x:Name="SearchTextBox" Width="200" Margin="0,0,10,0" TextChanged="SearchButton_Click"/>
 			<Button Content="Добавить нового питомца" Width="150" Click="AddPetButton_Click"/>

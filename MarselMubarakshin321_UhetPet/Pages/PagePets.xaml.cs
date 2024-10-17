@@ -45,7 +45,30 @@ namespace MarselMubarakshin321_UhetPet.Pages
 
         private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var selectedSort = SortComboBox.SelectedItem as ComboBoxItem;
 
+            if (selectedSort != null)
+            {
+                var pets = DatabaseConnectionClass.DatabaseConnection.Pets.AsQueryable();
+
+                switch (selectedSort.Content.ToString())
+                {
+                    case "Имя (А-Я)":
+                        pets = pets.OrderBy(p => p.Names);
+                        break;
+                    case "Имя (Я-А)":
+                        pets = pets.OrderByDescending(p => p.Names);
+                        break;
+                    case "Описание (А-Я)":
+                        pets = pets.OrderBy(p => p.Opisanie);
+                        break;
+                    case "Описание (Я-А)":
+                        pets = pets.OrderByDescending(p => p.Opisanie);
+                        break;
+                }
+
+                PetsListView.ItemsSource = pets.ToList();
+            }
         }
 
         private void AddPetButton_Click(object sender, RoutedEventArgs e)
