@@ -151,7 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBase\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model1.Context.tt">
@@ -164,6 +163,17 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\photo_5316516549026239213_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239214_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239215_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239216_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239217_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239218_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239219_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239220_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239221_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239222_y.jpg" />
+    <Resource Include="Resources\photo_5316516549026239223_y.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

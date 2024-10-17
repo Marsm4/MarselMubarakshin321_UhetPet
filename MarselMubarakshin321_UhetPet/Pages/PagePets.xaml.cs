@@ -26,28 +26,32 @@ namespace MarselMubarakshin321_UhetPet.Pages
             InitializeComponent();
             LoadPets();
         }
+
         private void LoadPets()
         {
+            // Загрузка всех питомцев из базы данных
             PetsListView.ItemsSource = DatabaseConnectionClass.DatabaseConnection.Pets.ToList();
         }
+
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-       
+          
         }
 
         private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+
         }
+
         private void AddPetButton_Click(object sender, RoutedEventArgs e)
         {
             
-        }
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Логика для возврата на предыдущую страницу или закрытия текущей
-            NavigationService?.GoBack();
+            MessageBox.Show("Пока просто заглушка");
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Выход.    Будет реализован когда я создам авторизацию. Пока просто как заглушку решил оставить   
+        }
     }
 }
