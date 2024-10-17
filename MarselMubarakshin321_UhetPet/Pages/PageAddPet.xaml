@@ -47,9 +47,9 @@
 		</ComboBox>
 
 		<!-- Загрузка фото -->
-		<Label Content="Фото:" Grid.Row="3" VerticalAlignment="Center"/>
-		<Button Content="Загрузить фото" Width="300" Grid.Row="3" Grid.Column="1" 
-                Margin="5,0,0,0" Click="UploadPhotoButton_Click"/>
+		<Label Content=" Выберите Фото:" Grid.Row="3" VerticalAlignment="Center"/>
+		<ComboBox x:Name="PhotoComboBox" Width="300" Grid.Row="3" Grid.Column="1" 
+                Margin="5,0,0,0"/>
 
 		<!-- Кнопки действий -->
 		<StackPanel Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2"
