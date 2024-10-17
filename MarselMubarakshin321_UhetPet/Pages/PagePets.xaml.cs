@@ -33,9 +33,14 @@ namespace MarselMubarakshin321_UhetPet.Pages
             PetsListView.ItemsSource = DatabaseConnectionClass.DatabaseConnection.Pets.ToList();
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void SearchButton_Click(object sender, RoutedEventArgs e)//поиск
         {
-          
+            string searchText = SearchTextBox.Text.ToLower();
+            var filteredPets = DatabaseConnectionClass.DatabaseConnection.Pets
+                .Where(p => p.Names.ToLower().Contains(searchText))
+                .ToList();
+
+            PetsListView.ItemsSource = filteredPets;
         }
 
         private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
