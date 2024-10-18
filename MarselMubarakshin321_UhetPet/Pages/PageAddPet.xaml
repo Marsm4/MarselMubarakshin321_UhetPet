@@ -14,8 +14,6 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="Auto" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 
@@ -23,13 +21,6 @@
 			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
-
-		<!-- Метка и поле для клички -->
-		<Label Content="Кличка:" Grid.Row="0" VerticalAlignment="Center"/>
-		<TextBox x:Name="NameTextBox" Width="300" Grid.Row="0" Grid.Column="1" 
-                 Margin="5,0,0,0" 
-                 GotFocus="RemoveNamePlaceholder" 
-                 LostFocus="AddNamePlaceholder"/>
 
 		<!-- Метка и поле для описания -->
 		<Label Content="Описание:" Grid.Row="1" VerticalAlignment="Center"/>
@@ -47,12 +38,12 @@
 		</ComboBox>
 
 		<!-- Загрузка фото -->
-		<Label Content=" Выберите Фото:" Grid.Row="3" VerticalAlignment="Center"/>
+		<Label Content="Выберите Фото:" Grid.Row="3" VerticalAlignment="Center"/>
 		<ComboBox x:Name="PhotoComboBox" Width="300" Grid.Row="3" Grid.Column="1" 
                 Margin="5,0,0,0"/>
 
 		<!-- Кнопки действий -->
-		<StackPanel Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2"
+		<StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2"
                     HorizontalAlignment="Center" Margin="0,20,0,0">
 			<Button Content="Сохранить" Width="140" Height="40" 
                     Margin="0,0,10,0" Click="SavePetButton_Click"/>

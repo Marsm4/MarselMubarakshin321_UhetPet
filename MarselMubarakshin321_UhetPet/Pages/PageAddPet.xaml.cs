@@ -1,4 +1,5 @@
 ﻿using MarselMubarakshin321_UhetPet.Classes;
+using MarselMubarakshin321_UhetPet.DataBaseUhet;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,8 @@ using System.Windows.Shapes;
 
 namespace MarselMubarakshin321_UhetPet.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для PageAddPet.xaml
-    /// </summary>
     public partial class PageAddPet : Page
     {
-        private string selectedPhotoPath;
-
         public PageAddPet()
         {
             InitializeComponent();
@@ -33,17 +29,12 @@ namespace MarselMubarakshin321_UhetPet.Pages
 
         private void LoadPhotosFromResources()
         {
-            // Путь к папке Resources в корне проекта.
             var resourcesFolderPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\mubar\\Source\\Repos\\MarselMubarakshin321_UhetPetdgf\\MarselMubarakshin321_UhetPet\\Resources\\");
-
-            // Проверка, существует ли папка Resources.
             if (Directory.Exists(resourcesFolderPath))
             {
-                // Получение всех файлов изображений в папке Resources.
                 var imageFiles = Directory.GetFiles(resourcesFolderPath, "*.jpg")
                                            .Concat(Directory.GetFiles(resourcesFolderPath, "*.png"));
 
-                // Добавление имен файлов в ComboBox.
                 foreach (var imagePath in imageFiles)
                 {
                     var fileName = System.IO.Path.GetFileName(imagePath);
@@ -56,22 +47,22 @@ namespace MarselMubarakshin321_UhetPet.Pages
             }
         }
 
-
         private void SavePetButton_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(NameTextBox.Text) || PhotoComboBox.SelectedItem == null)
+            if (PetComboBox.SelectedItem == null || PhotoComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Заполните все поля и выберите фото.");
+                MessageBox.Show("Выберите питомца и фото.");
                 return;
             }
 
-            // Получаем выбранное имя файла из ComboBox
+            // Получаем выбранное имя питомца из ComboBox
+            var selectedPet = (PetComboBox.SelectedItem as ComboBoxItem).Content.ToString();
             var fileName = PhotoComboBox.SelectedItem.ToString();
             var imagePathInResources = $"/Resources/{fileName}";
 
             var newPet = new Pets
             {
-                Names = NameTextBox.Text,
+                Names = selectedPet,
                 Opisanie = DescriptionTextBox.Text,
                 ImagePath = imagePathInResources
             };
@@ -86,23 +77,6 @@ namespace MarselMubarakshin321_UhetPet.Pages
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.GoBack();
-        }
-        private void AddNamePlaceholder(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
-            {
-                NameTextBox.Text = "Введите кличку";
-                NameTextBox.Foreground = Brushes.Gray;
-            }
-        }
-
-        private void RemoveNamePlaceholder(object sender, RoutedEventArgs e)
-        {
-            if (NameTextBox.Text == "Введите кличку")
-            {
-                NameTextBox.Text = string.Empty;
-                NameTextBox.Foreground = Brushes.Black;
-            }
         }
 
         private void AddDescriptionPlaceholder(object sender, RoutedEventArgs e)

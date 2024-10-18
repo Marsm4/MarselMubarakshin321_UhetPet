@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MarselMubarakshin321_UhetPet
+namespace MarselMubarakshin321_UhetPet.DataBaseUhet
 {
     using System;
     
