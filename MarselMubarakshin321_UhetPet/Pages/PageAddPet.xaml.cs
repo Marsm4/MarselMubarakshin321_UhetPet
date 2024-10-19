@@ -24,7 +24,7 @@ namespace MarselMubarakshin321_UhetPet.Pages
         public PageAddPet()
         {
             InitializeComponent();
-            LoadPhotosFromResources();
+            LoadPhotosFromResources();          
         }
 
         private void LoadPhotosFromResources()

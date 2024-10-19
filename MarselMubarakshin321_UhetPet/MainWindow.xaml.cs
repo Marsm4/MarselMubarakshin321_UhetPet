@@ -24,7 +24,7 @@ namespace MarselMubarakshin321_UhetPet
         public MainWindow()
         {
             InitializeComponent();
-            NavFrame.Navigate(new PagePets());
+            NavFrame.Navigate(new LoginPage());
         }
     }
 }

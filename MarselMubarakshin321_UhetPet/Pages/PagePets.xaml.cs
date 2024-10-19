@@ -1,6 +1,7 @@
 ﻿using MarselMubarakshin321_UhetPet.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,33 @@ namespace MarselMubarakshin321_UhetPet.Pages
     /// </summary>
     public partial class PagePets : Page
     {
-        public PagePets()
+
+        private string _currentUser;
+        public PagePets(string currentUser)
         {
             InitializeComponent();
+            _currentUser = currentUser;
             LoadPets();
         }
 
         private void LoadPets()
         {
-            // Загрузка всех питомцев из базы данных
+          
             PetsListView.ItemsSource = DatabaseConnectionClass.DatabaseConnection.Pets.ToList();
+            var pets = DatabaseConnectionClass.DatabaseConnection.Pets.ToList();
+
+         
+            if (_currentUser == "Андрей пирокинезис")
+            {
+                pets = pets.Where(p => p.Names == "Ра").ToList();
+            }
+            else if (_currentUser == "Деля")
+            {
+                pets = pets.Where(p => p.Names == "Нуби").ToList();
+            }
+            
+
+            PetsListView.ItemsSource = pets;
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)//поиск
@@ -39,6 +57,16 @@ namespace MarselMubarakshin321_UhetPet.Pages
             var filteredPets = DatabaseConnectionClass.DatabaseConnection.Pets
                 .Where(p => p.Names.ToLower().Contains(searchText))
                 .ToList();
+            // Фильтрация данных в зависимости от текущего пользователя
+            if (_currentUser == "Андрей пирокинезис")
+            {
+                filteredPets = filteredPets.Where(p => p.Names == "Ра").ToList();
+            }
+            else if (_currentUser == "Деля")
+            {
+                filteredPets = filteredPets.Where(p => p.Names == "Нуби").ToList();
+            }
+
 
             PetsListView.ItemsSource = filteredPets;
         }
@@ -66,6 +94,14 @@ namespace MarselMubarakshin321_UhetPet.Pages
                         pets = pets.OrderByDescending(p => p.Opisanie);
                         break;
                 }
+                if (_currentUser == "Андрей пирокинезис")
+                {
+                    pets = pets.Where(p => p.Names == "Ра");
+                }
+                else if (_currentUser == "Деля")
+                {
+                    pets = pets.Where(p => p.Names == "Нуби");
+                }
 
                 PetsListView.ItemsSource = pets.ToList();
             }
@@ -82,7 +118,7 @@ namespace MarselMubarakshin321_UhetPet.Pages
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Выход.    Будет реализован когда я создам авторизацию. Пока просто как заглушку решил оставить   
+            NavigationService?.GoBack();
         }
     }
 }
